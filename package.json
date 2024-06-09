@@ -2,25 +2,27 @@
   "name": "clone-tabnews",
   "version": "1.0.0",
   "description": "Implementação do tabnews para o curso.dev",
-  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "next": "^14.2.3",
+    "pg": "^8.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "20.14.2",
+    "@types/pg": "^8.11.6",
     "@types/react": "18.3.3",
     "jest": "^29.6.2",
     "prettier": "^3.3.0",
