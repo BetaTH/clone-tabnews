@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Implementação do tabnews para o curso.dev",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -f src/infra/compose.yaml up -d",
+    "services:stop": "docker compose -f src/infra/compose.yaml down",
+    "services:down": "docker compose -f src/infra/compose.yaml down",
     "build": "next build",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
