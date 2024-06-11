@@ -14,6 +14,7 @@ async function query(queryConfig: string | QueryConfig, values?: any[]) {
     return result;
   } catch (error) {
     console.error("Error executing query:", error);
+    throw error;
   } finally {
     await client.end();
   }
