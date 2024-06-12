@@ -1,4 +1,4 @@
-import { Client, ClientBase, QueryConfig } from "pg";
+import { Client, QueryConfig } from "pg";
 
 async function query(queryConfig: string | QueryConfig, values?: any[]) {
   const client = new Client({
@@ -7,6 +7,7 @@ async function query(queryConfig: string | QueryConfig, values?: any[]) {
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
+    ssl: getSSLValues(),
   });
   try {
     await client.connect();
@@ -25,3 +26,13 @@ export const db: {
 } = {
   query,
 };
+
+function getSSLValues() {
+  if (process.env.POSTGRES_CA) {
+    return {
+      ca: process.env.POSTGRES_CA,
+    };
+  }
+
+  return process.env.NODE_ENV === "production" ? true : false;
+}
