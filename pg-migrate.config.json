@@ -1,5 +1,3 @@
 {
-  "migration-file-language": "ts",
-  "migrations-dir": "src/infra/migrations",
-  "tsconfig": "pg-migrate.tsconfig.json"
+  "migrations-dir": "src/infra/migrations"
 }
