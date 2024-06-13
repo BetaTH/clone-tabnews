@@ -9,6 +9,7 @@ export async function GET(_: NextRequest) {
     dryRun: true,
     direction: "up",
     verbose: true,
+    migrationsTable: "pgmigrations",
   });
   return NextResponse.json([], { status: 200 });
 }
