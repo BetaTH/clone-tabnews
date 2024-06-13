@@ -1,5 +1,5 @@
 describe("GET to /api/v1/status", () => {
-  it("should be able to return 200", async () => {
+  it("should return 200", async () => {
     const response = await fetch("http://localhost:3000/api/v1/status");
     expect(response.status).toBe(200);
 
