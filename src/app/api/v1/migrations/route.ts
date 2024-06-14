@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 const defaultMigrationOptions: Omit<RunnerOption, "databaseUrl" | "dbClient"> =
   {
-    dir: join("src", "infra", "migrations"),
+    dir: join(process.cwd(), "src", "infra", "migrations"),
     dryRun: true,
     direction: "up",
     verbose: true,
