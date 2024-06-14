@@ -10,9 +10,9 @@
     "build": "next build",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:watchAll": "jest --watchAll",
+    "test": "jest --runInBand --runInBand",
+    "test:watch": "jest --watch --runInBand",
+    "test:watchAll": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate -f pg-migrate.config.json create",
     "migration:up": "node-pg-migrate -f pg-migrate.config.json --envPath .env.development up"
   },
