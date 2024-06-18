@@ -1,10 +1,11 @@
 import { db } from "@/infra/database";
+import { waitForAllServices } from "@/tests/orchestrator";
 
-async function cleanDatabase() {
-  await db.query("drop schema public cascade; create schema public;");
-}
 describe("POST to /api/v1/migrations", () => {
-  beforeAll(cleanDatabase);
+  beforeAll(async () => {
+    await waitForAllServices();
+    await db.query("drop schema public cascade; create schema public;");
+  });
   it("should migrate pending migrations and return 201", async () => {
     const response = await fetch("http://localhost:3000/api/v1/migrations", {
       method: "POST",
