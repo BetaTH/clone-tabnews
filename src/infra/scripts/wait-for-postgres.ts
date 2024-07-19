@@ -4,7 +4,7 @@ function checkPostgres() {
   exec("docker exec postgres-dev pg_isready --host localhost", handleReturn);
 }
 
-function handleReturn(error: ExecException, stdout: string, stderr: string) {
+function handleReturn(error: ExecException, stdout: string, _stderr: string) {
   if (stdout.search("accepting connections") === -1) {
     process.stdout.write(".");
     checkPostgres();
